@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--HTML document to define the layout of the header and the navigation bar-->
+<link href="https://fonts.googleapis.com/css2?family=Questrial&family=Robot
+o&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+<div id="container">
+
+    <a style="text-decoration:none" href="https://w1809849.users.ecs.westminster.ac.uk/homteq/index.php"></a>
+        <div id="navbar">
+            <div id="header">
+                <h1>homteq`</h1>
+                <h2>your home for home tech</h2>
+                <h3><?php echo "London, ".date('l d F Y h:i:s');?> </h3>
+            </div>
+            <div id="navigation">
+                <ul>
+                    <?php
+                    if(!isset($_SESSION['userId'])) {
+                        echo "<div>";
+                            echo "<li><a href='index.php'>Home Tech</a></li>";
+                            echo "<li><a href='aboutus.php'>About Us</a></li>";
+                            echo "<li><a href='signup.php'>Sign Up</a></li>";
+                            echo "<li><a href='login.php'>Login</a></li>";
+                        echo "</div>";
+                        echo "<div>";
+                            echo "<li><a href='basket.php'>Smart Basket</a></li>";
+                            echo "<li><a href='login.php'>Staff Login</a></li>";
+                        echo "</div>";
+                    } else {
+                        if ($_SESSION['user_type']=="Customer") {
+                            echo "<div>";
+                                echo "<li><a href='index.php'>Home Tech</a></li>";
+                                echo "<li><a href='aboutus.php'>About Us</a></li>";
+                                echo "<li><a href='logout.php'>Logout</a></li>";
+                            echo "</div>";
+                            echo "<div>";
+                                echo "<li><a href='basket.php'>Smart Basket</a></li>";
+                            echo "</div>";
+                        }
+                        if ($_SESSION['user_type']=="Administrator") {
+                            echo "<div>";
+                                echo "<li><a href='index.php'>Home Tech</a></li>";
+                                echo "<li><a href='addproduct.php'>Add Product</a></li>";
+                                echo "<li><a href='editproduct.php'>Edit Product</a></li>";
+                                echo "<li><a href='processorders.php'>Process Orders</a></li>";
+                            echo "</div>";
+                            echo "<div>";
+                                echo "<li><a href='logout.php'>Logout</a></li>";
+                            echo "</div>";
+                        }
+
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+<div id='content'>
+
+</body>
+</html>
+
