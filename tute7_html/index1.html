@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Practice</title>
+</head>
+<body>
+<h2>Welcome!</h2>
+<button id="welcomeButton">Click Me</button>
+<button class="allButtons">Hover Here</button>
+<button class="allButtons">Or Here</button>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function (){
+
+    // Click event for #welcomeButton
+    $('#welcomeButton').click(function () {
+      alert("Welcome from the Click Event!");
+    });
+
+    // Click event for all buttons with class .allButtons
+    $('.allButtons').click(function () {
+      alert("This message is from all buttons (Click Event)");
+    });
+
+    // Mouseover event for all buttons with class .allButtons
+    $('.allButtons').mouseover(function () {
+      alert("Welcome on Mouseover!");
+    });
+  });
+</script>
+
+</body>
+</html>
+

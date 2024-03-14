@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Practice</title>
+</head>
+<body>
+<h2>Welcome!</h2>
+<form id="myForm">
+  <input type="text" id="userInput" placeholder="Enter something here">
+  <button type="submit" id="submitButton">Submit</button>
+</form>
+<div id="displayArea"></div>
+<button id="clearButton">Clear Display</button>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function (){
+
+    // Submit button click event with form submission prevention
+    $('#submitButton').click(function (e) {
+      e.preventDefault();
+      // Get user input and display it in alert box
+      alert($('#userInput').val());
+
+      // Update display area with user input
+      $('#displayArea').html($('#userInput').val());
+    });
+
+    // Clear button click event to clear display area
+    $('#clearButton').click(function () {
+      $('#displayArea').html(''); // Set display area to empty string
+    });
+  });
+</script>
+
+</body>
+</html>
